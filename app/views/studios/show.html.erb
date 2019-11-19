@@ -1,7 +1,11 @@
-<h1>@studio.name</h1>
+<h1><%= @studio.name %></h1>
 
 <ul>
-  <li>@studio.category</li>
-  <li>@studio.price_per_hour</li>
-  <li>@studio.description</li>
+  <li>Category: <%= @studio.category %></li>
+  <li>City: <%= @studio.city %></li>
+  <li>Price/hour: <%= @studio.price_per_hour %></li>
+  <li>Description: <%= @studio.description %></li>
 </ul>
+
+<p><%= link_to "I want to book this studio!", new_studio_booking_path(@studio) %></p>
+<p><%= link_to "Go back to homepage / search page", studios_path %></p>
