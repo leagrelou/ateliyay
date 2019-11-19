@@ -1,7 +1,11 @@
-<h1>Studios#index</h1>
-<p>Find me in app/views/studios/index.html.erb</p>
+<h1>Welcome to Ateliyay!</h1>
+<h3>Have a look at our different studios and book one!</h3>
 <ul>
   <% @studios.each do |studio| %>
     <li><%= link_to studio.name, studio_path(studio) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Manage my studios", my_studios_path %>
+
+<h1>LET'S NOT FORGET THE SEARCH BAR</h1>
