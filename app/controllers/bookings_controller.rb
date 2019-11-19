@@ -13,7 +13,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.save
 
-    redirect_to booking_path(@booking)
+    if @booking.save
+     redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   # GET  /bookings/:id, alias: booking
