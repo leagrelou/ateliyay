@@ -1,5 +1,12 @@
 <h1>Welcome to Ateliyay!</h1>
 <h3>Have a look at our different studios and book one!</h3>
+
+<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :name, input_html: {value: ""} %>
+  <%= f.input :category, collection: ["test3", "3"] %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
 <ul>
   <% @studios.each do |studio| %>
     <li><%= link_to studio.name, studio_path(studio) %></li>
@@ -7,5 +14,3 @@
 </ul>
 
 <%= link_to "Manage my studios", my_studios_path %>
-
-<h1>LET'S NOT FORGET THE SEARCH BAR</h1>
