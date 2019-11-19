@@ -26,8 +26,11 @@ class MyStudiosController < ApplicationController
   def update
     user = current_user
     @my_studio = Studio.find(params[:id])
-    # @my_studio.user = user
-    @my_studio.update(params_my_studio)
+    if @my_studio.update(params_my_studio)
+      redirect_to my_studio_path(@my_studio)
+    else
+      render :edit
+    end
   end
 
   def destroy
