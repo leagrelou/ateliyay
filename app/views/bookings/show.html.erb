@@ -1,2 +1,9 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1>Booking for "<%= @studio.name %>" </h1>
+
+<p>Booking status: <%= @confirmation_status %></p>
+<!-- strftime() method is for formatting the date -->
+<p>Start date/time : <%= @booking.start_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
+<p>End date/time : <%= @booking.end_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
+
+
+<%= link_to "Back to studio search", studios_path %>
