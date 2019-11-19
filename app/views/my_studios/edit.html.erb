@@ -1,2 +1,16 @@
-<h1>MyStudios#edit</h1>
-<p>Find me in app/views/my_studios/edit.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>List a Studio to Rent</h1>
+
+      <%= simple_form_for(@my_studio, url: my_studio_path(@my_studio)) do |s| %>
+        <%= s.input :name %>
+        <%= s.input :category %>
+        <%= s.input :price_per_hour %>
+        <%= s.input :city %>
+        <%= s.input :description %>
+        <%= s.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
