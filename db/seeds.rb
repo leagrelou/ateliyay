@@ -10,15 +10,37 @@ User.destroy_all
 Studio.destroy_all
 puts "seeding new studios..."
 categories = %w[art recording woodworking screenprinting paint]
-user = User.create!(first_name: "luk", last_name: "Skywalker", email: "starwars@gmail.com", password: "12345678")
-10.times do
- studio = Studio.new(
-   name: Faker::Hipster.sentence(word_count: 3),
-   category: categories.sample,
-   price_per_hour: rand(9..58)
+# user = User.create!(first_name: "luk", last_name: "Skywalker", email: "starwars@gmail.com", password: "12345678")
+
+
+5.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    email: Faker::Internet.email, 
+    password: 12345678
+    )
+  2.times do 
+  studio = Studio.new(
+    name: Faker::Hipster.sentence(word_count: 3),
+    category: categories.sample,
+    price_per_hour: rand(9..58)
    )
- studio.user = user
- studio.save
+  studio.user = user
+  studio.save
+  end
 end
+
+# 10.times do
+#  studio = Studio.new(
+#    name: Faker::Hipster.sentence(word_count: 3),
+#    category: categories.sample,
+#    price_per_hour: rand(9..58)
+#    )
+#  studio.user = user
+#  studio.save
+# end
+
+
 puts "seeding is done"
 

@@ -1,2 +1,7 @@
 <h1>MyStudios#index</h1>
-<p>Find me in app/views/my_studios/index.html.erb</p>
+
+<ul>
+  <% @my_studios.each do |my_studio| %>
+  <li><%= link_to my_studio.name, my_studio_path(my_studio) %> </li>
+  <% end %>
+</ul>
