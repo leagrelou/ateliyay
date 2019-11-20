@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_152412) do
+ActiveRecord::Schema.define(version: 2019_11_20_172946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_11_19_152412) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo", default: "https://images.unsplash.com/photo-1564940265879-ad8e8f6f3606?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+    t.string "address", default: "5333 Casgrain Ave, Montreal, QC"
     t.index ["user_id"], name: "index_studios_on_user_id"
   end
 
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_152412) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo", default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV55GSSmPPQFGQwp-W7w6rspH3dtTcQU05mFpCTOyib8eHGNgCLQ&s"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
