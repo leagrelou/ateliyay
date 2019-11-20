@@ -1,7 +1,9 @@
-<h1>Bookings#new</h1>
-<%= simple_form_for [@studio, @booking] do |f| %>
-  <%= f.input :start_datetime %>
-  <%= f.input :end_datetime %>
+<div class="container">
+  <h1>Book "<%= @studio.name %>"</h1>
+    <%= simple_form_for [@studio, @booking] do |f| %>
+      <%= f.input :start_datetime, label: "From when?" %>
+      <%= f.input :end_datetime, label: "To when?"%>
 
-  <%= f.submit "Book!" %>
-<% end %>
+      <%= f.submit "Book!", class: "btn btn-success"%>
+    <% end %>
+</div>
