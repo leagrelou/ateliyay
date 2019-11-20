@@ -7,8 +7,8 @@
 </div>
 <div class="container">
   <p>Located in: <%= @studio.city %></p>
-  <p>Price: $<%= @studio.price_per_hour %>/hour</p>
-  <p>To learn more about this studio: <%= @studio.description %></p>
+  <p>Price: $<%= '%.2f' % @studio.price_per_hour %>/hour</p>
+  <p>Description: <%= @studio.description %></p>
   <a class="btn btn-flat" href="<%= studios_path %>">Go back to homepage / search page</a>
 </div>
 
