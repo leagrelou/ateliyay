@@ -1,8 +1,20 @@
-<h1>My_Studios#index</h1>
-<ul>
-  <% @my_studios.each do |my_studio| %>
-    <li><%= link_to my_studio.name, my_studio_path(my_studio) %> <%= link_to "edit", edit_my_studio_path(my_studio), class: "btn btn-success btn-sm"%> <%= link_to "delete", my_studio_path(my_studio), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-</ul>
+<h1>My Studios</h1> <%= link_to "Add a studio", new_my_studio_path, class: "btn btn-primary btn-lg" %>
 
-<%= link_to "list a studio", new_my_studio_path, class: "btn btn-primary btn-lg" %>
+
+<div class="container cards mt-5">
+  <% @my_studios.each do |my_studio| %>
+      <div class="card-trip">
+        <img src= "<%= my_studio.photo %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2> <%= link_to my_studio.name, my_studio_path(my_studio) %> </h2>
+            
+            <p><%= my_studio.category %> - <%= my_studio.city %></p>
+            <%= link_to "edit", edit_my_studio_path(my_studio), class: "btn btn-primary btn-sm"%>
+            <%= link_to "delete", my_studio_path(my_studio), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+          <h2 class="card-trip-pricing">$<%= '%.2f' % my_studio.price_per_hour %>/hour</h2>
+        </div>
+      </div>
+  <% end %>
+</div>
