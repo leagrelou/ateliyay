@@ -27,7 +27,7 @@
   <% @studios.each do |studio| %>
     <%= link_to studio_path(studio) do %>
       <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <img src= "<%= studio.photo %>" />
         <div class="card-trip-infos">
           <div>
             <h2><%= studio.name %></h2>
