@@ -1,4 +1,15 @@
-<h1>Booking for "<%= @studio.name %>" </h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @studio.photo %>);">
+  <div class="container">
+    <h1>Your Booking for "<%= @studio.name %>" </h1>
+    <p>Status: <% if @booking.confirmed %>
+      <span class="booking-status-confirmed">Confirmed</span>
+      <% else %>
+      <span class="booking-status-pending">Pending</span></p>
+      <% end %>
+  </div>
+</div>
+
+
 
 <p>Booking status: <%= @confirmation_status %></p>
 <!-- strftime() method is for formatting the date -->

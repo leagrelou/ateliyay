@@ -76,7 +76,8 @@ photos = {
     category: category,
     # address: Faker::Address.street_address,
     city: "Montreal",
-    photo: photos[category.to_s],
+    description: Faker::Hipster.sentence(word_count: 7),
+    photo: photos[category.to_sym],
     price_per_hour: rand(9..67)
     )
 
