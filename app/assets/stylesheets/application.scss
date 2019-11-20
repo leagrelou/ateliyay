@@ -12,10 +12,17 @@
 @import "components/index";
 @import "pages/index";
 
+a {
+  color: rgba(60,60,60,0.7);
+}
 a:hover {
   text-decoration: none;
+  color: black;
+  transition: 0.3s;
 }
 
 h1 {
  font-family: 'Roboto', sans-serif;
 }
+
+
