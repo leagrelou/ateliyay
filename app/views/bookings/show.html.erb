@@ -17,5 +17,5 @@
 <p>End date/time : <%= @booking.end_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
 
 <p>Booking time: <%= @booking_time %>hrs</p>
-<p>Booking price: $<%= @booking_price %></p>
+<p>Booking price: $<%= '%.2f' % @booking_price %></p>
 <%= link_to "Back to studio search", studios_path %>

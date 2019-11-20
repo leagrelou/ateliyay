@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     @confirmation_status = @booking.confirmed ? "confirmed" : "pending"
     # raise
     # calculate elapsed time in hours
-    @booking_time = (@booking.end_datetime - @booking.start_datetime) / 60 / 60
+    @booking_time = (@booking.end_datetime - @booking.start_datetime).abs / 60 / 60
 
     # calculate price
     @booking_price = @studio.price_per_hour * @booking_time
