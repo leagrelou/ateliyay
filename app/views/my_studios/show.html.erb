@@ -1,16 +1,19 @@
-<h1>MyStudios#show</h1>
-
-<ul>
-<li> <%= @my_studio.name %></li>
-<li> <%= @my_studio.category %></li>
-<li> <%= @my_studio.price_per_hour %></li>
-<li> <%= @my_studio.city %></li>
-<li> <%= @my_studio.description %></li>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @my_studio.photo %>);">
+  <div class="container">
+    <h1><%= @my_studio.name %></h1>
+    <p><%= @my_studio.category %></p>
+  </div>
+</div>
+<div class="container mb-5">
+  <p>Located in: <%= @my_studio.city %></p>
+  <p>Price: $<%= '%.2f' % @my_studio.price_per_hour %>/hour</p>
+  <p>Description: <%= @my_studio.description %></p>
+</div>
 
 
 <h2>
-  <%= link_to "Back to listing", my_studios_path, class: "btn btn-primary btn-lg"%> 
+  <%= link_to "Back to my studios", my_studios_path, class: "btn btn-primary btn-lg"%> 
   <%= link_to "edit", edit_my_studio_path(@my_studio), class: "btn btn-success btn-lg"%> 
   <%= link_to "delete", my_studio_path(@my_studio), class: "btn btn-danger btn-lg", method: :delete, data: { confirm: "Are you sure?" } %> 
 </h2>
+  <a class="btn btn-flat" href="<%= studios_path %>">Go back to homepage / search page</a>
