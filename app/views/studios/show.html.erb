@@ -1,17 +1,15 @@
-<h1><%= @studio.name %></h1>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1564940265879-ad8e8f6f3606?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <h1><%= @studio.name %></h1>
+    <p><%= @studio.category %></p>
+    <a class="btn btn-flat" href="<%= new_studio_booking_path(@studio) %>">Book this studio</a>
   </div>
 </div>
-<ul>
-  <li>Category: <%= @studio.category %></li>
-  <li>City: <%= @studio.city %></li>
-  <li>Price/hour: <%= @studio.price_per_hour %></li>
-  <li>Description: <%= @studio.description %></li>
-</ul>
+<div class="container">
+  <p>Located in: <%= @studio.city %></p>
+  <p>Price: $<%= @studio.price_per_hour %>/hour</p>
+  <p>To learn more about this studio: <%= @studio.description %></p>
+  <a class="btn btn-flat" href="<%= studios_path %>">Go back to homepage / search page</a>
+</div>
 
-<p><%= link_to "I want to book this studio!", new_studio_booking_path(@studio) %></p>
-<p><%= link_to "Go back to homepage / search page", studios_path %></p>
+
