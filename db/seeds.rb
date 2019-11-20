@@ -12,7 +12,6 @@ supers = %w[Very Ulta Cool Cheap Hip Stellar Great Ok]
 
 adjectives = %w[cozy well-equipped state-of-the-art magnificent creative sound-proof conveniently-located]
 
-
 # SEED USERS
 puts "destorying users..."
 User.destroy_all
@@ -57,20 +56,34 @@ puts "destroying old studios..."
 Studio.destroy_all
 puts "seeding new studios..."
 
-# user = User.create!(first_name: "luk", last_name: "Skywalker", email: "starwars@gmail.com", password: "12345678")
+
+photos = {
+          art: "https://images.unsplash.com/photo-1447758902204-48010b87c24d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+          recording: "https://images.unsplash.com/photo-1559732277-7453b141e3a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+          woodworking:"https://images.unsplash.com/photo-1426927308491-6380b6a9936f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
+          screenprinting: "https://images.unsplash.com/photo-1513785077084-84adb77e90ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+          paint: "https://images.unsplash.com/photo-1528396518501-b53b655eb9b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+          dance: "https://images.unsplash.com/photo-1513011867722-59698dca51ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+          metalworking: "https://images.unsplash.com/photo-1531053326607-9d349096d887?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+          ceramics: "https://images.unsplash.com/photo-1556707755-5e9a0328d32f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        }
 
 20.times do
- category = categories.sample
+  category = categories.sample
 
- studio = Studio.new(
-   name: "#{supers.sample} #{adjectives.sample} #{category} studio",
-   category: category,
-   # address: Faker::Address.street_address,
-   city: "Montreal",
-   price_per_hour: rand(9..67)
-   )
+  studio = Studio.new(
+    name: "#{supers.sample} #{adjectives.sample} #{category} studio",
+    category: category,
+    # address: Faker::Address.street_address,
+    city: "Montreal",
+    photo: photos[category.to_s],
+    price_per_hour: rand(9..67)
+    )
+
+ # get the last 4 users created and assign one to studio
  studio.user = User.last(4).sample
  studio.save
 end
+
 puts "seeding is done"
 
