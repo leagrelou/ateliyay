@@ -7,10 +7,23 @@
   <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
 
-<ul>
+<div class="container cards mt-5">
   <% @studios.each do |studio| %>
-    <li><%= link_to studio.name, studio_path(studio) %></li>
+    <%= link_to studio_path(studio) do %>
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= studio.name %></h2>
+            <p><%= studio.category %> - <%= studio.city %></p>
+          </div>
+          <h2 class="card-trip-pricing">$<%= studio.price_per_hour %>/hour</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %> 
   <% end %>
-</ul>
+</div>
 
 <%= link_to "Manage my studios", my_studios_path %>
+
