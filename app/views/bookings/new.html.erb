@@ -1,8 +1,11 @@
 <div class="container">
   <h1>Book "<%= @studio.name %>"</h1>
     <%= simple_form_for [@studio, @booking] do |f| %>
-      <%= f.input :start_datetime, label: "From when?" %>
-      <%= f.input :end_datetime, label: "To when?"%>
+      <%= f.input :start_date, label: "From what day?", html5: true, class: "form-control datepicker"%>
+      <%= f.input :start_time, label: "At what time?", html5: true, class: "time-picker" %>
+
+      <%= f.input :end_date, label: "From when?",html5: true, class: "date-picker" %>
+      <%= f.input :end_time, label: "At what time?", html5: true, class: "time-picker"%>
 
       <%= f.submit "Book!", class: "btn btn-success"%>
     <% end %>

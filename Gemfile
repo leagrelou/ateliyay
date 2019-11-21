@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 gem "algoliasearch-rails"
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 gem 'devise'
 gem 'faker'
