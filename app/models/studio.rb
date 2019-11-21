@@ -8,4 +8,12 @@ class Studio < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attributes :name, :category, :city
+  end
+
+  # Modelname.reindex each time change the model
 end

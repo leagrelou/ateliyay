@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem "algoliasearch-rails"
+
 gem 'devise'
 gem 'faker'
+# keep secret key
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'geocoder'
 
 gem 'bootsnap', require: false
