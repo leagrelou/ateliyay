@@ -12,11 +12,13 @@ class StudiosController < ApplicationController
       @studios = Studio.all
     end
 
-    @studios = @studios.geocoded #returns flats with coordinates
+    # @studios = @studios.geocoded #returns flats with coordinates
     @markers = @studios.map do |studio|
       {
         lat: studio.latitude,
-        lng: studio.longitude
+        lng: studio.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { studio: studio }),
+        image_url: helpers.asset_url(studio.photo.to_s)
       }
     end
   end
