@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :studios, only: [:index, :show] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:index, :show, :update]
   resources :my_studios
+
+  # for updating confirm requests.
+  # patch
 end
