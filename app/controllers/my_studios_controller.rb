@@ -11,6 +11,7 @@ class MyStudiosController < ApplicationController
   def create
     user = current_user
     @my_studio = Studio.new(params_my_studio)
+    @my_studio.geocode
     @my_studio.user = user
     if @my_studio.save
       redirect_to my_studios_path
@@ -49,6 +50,6 @@ class MyStudiosController < ApplicationController
   private
 
   def params_my_studio
-    params.require(:studio).permit(:name, :category, :price_per_hour, :city, :description, :photo)
+    params.require(:studio).permit(:name, :category, :price_per_hour, :city, :description, :address, :photo)
   end
 end

@@ -74,7 +74,7 @@ photos = {
   studio = Studio.new(
     name: "#{supers.sample} #{adjectives.sample} #{category} studio",
     category: category,
-    address: "5333 Casgrain Ave, Montreal, QC",
+    address: "#{rand(5300..5400)} Casgrain Ave, Montreal, QC",
     city: "Montreal",
     description: Faker::Hipster.sentence(word_count: 7),
     photo: photos[category.to_sym],
