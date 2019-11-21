@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-# search gemgem "algoliasearch-rails"
+gem "algoliasearch-rails"
 
 gem 'devise'
 gem 'faker'
