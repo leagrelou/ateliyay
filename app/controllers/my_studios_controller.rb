@@ -2,6 +2,13 @@ class MyStudiosController < ApplicationController
   def index
     user = current_user
     @my_studios = user.studios
+
+    # get all bookings associated with logged in owner
+    @my_bookings = Booking.joins(:studio).where(studios: { user: user })
+
+    # get arrays of confirmed and unconfirmed bookings for logged in owner
+    @pending_bookings = @my_bookings.select { |b| !b.confirmed }
+    @confirmed_bookings = @my_bookings.select { |b| b.confirmed }
   end
 
   def new
@@ -51,4 +58,5 @@ class MyStudiosController < ApplicationController
   def params_my_studio
     params.require(:studio).permit(:name, :category, :price_per_hour, :city, :description, :photo)
   end
+
 end

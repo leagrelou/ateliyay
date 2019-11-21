@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :studios, dependent: :destroy
   has_many :bookings
+  has_many :bookings, through: :studios
 
   validates :first_name, presence: true
   validates :last_name, presence: true
