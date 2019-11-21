@@ -7,6 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 
 import { initMapbox } from '../plugins/init_mapbox';
 
-import {search} from  "./components/algolia";
-initMapbox();
+import {search} from  "../components/algolia";
+// initMapbox();
+search();
 

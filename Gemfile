@@ -5,7 +5,6 @@ gem "algoliasearch-rails"
 
 gem 'devise'
 gem 'faker'
-
 # keep secret key
 gem 'dotenv-rails', groups: [:development, :test]
 
