@@ -74,16 +74,21 @@ photos = {
   studio = Studio.new(
     name: "#{supers.sample} #{adjectives.sample} #{category} studio",
     category: category,
-    # address: Faker::Address.street_address,
+    address: "5333 Casgrain Ave, Montreal, QC",
     city: "Montreal",
     description: Faker::Hipster.sentence(word_count: 7),
     photo: photos[category.to_sym],
     price_per_hour: rand(9..67)
-    )
+  )
 
- # get the last 4 users created and assign one to studio
- studio.user = User.last(4).sample
- studio.save
+  coords = studio.geocode
+
+  # get the last 4 users created and assign one to studio
+  studio.user = User.last(4).sample
+  studio.save
+
+  puts "created #{studio.name} at #{coords}"
+  sleep(1)
 end
 
 puts "seeding is done"

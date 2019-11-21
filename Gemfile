@@ -5,8 +5,12 @@ gem "algoliasearch-rails"
 
 gem 'devise'
 gem 'faker'
+<<<<<<< HEAD
 # keep secret key
 gem 'dotenv-rails', groups: [:development, :test]
+=======
+gem 'geocoder'
+>>>>>>> master
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

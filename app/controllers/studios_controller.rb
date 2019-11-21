@@ -11,6 +11,14 @@ class StudiosController < ApplicationController
     else
       @studios = Studio.all
     end
+
+    @studios = @studios.geocoded #returns flats with coordinates
+    @markers = @studios.map do |studio|
+      {
+        lat: studio.latitude,
+        lng: studio.longitude
+      }
+    end
   end
 
   def show
