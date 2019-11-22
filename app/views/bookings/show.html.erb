@@ -1,23 +1,48 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @studio.photo %>);">
-  <div class="container">
-    <h1> Your <%= @studio.user ==  current_user ? "Hosting" : "Booking" %> for "<%= @studio.name %>" </h1>
-    <p>Status: <% if @booking.confirmed %>
-      <span class="booking-status-confirmed">Confirmed</span>
-      <% else %>
-      <span class="booking-status-pending">Pending</span></p>
-      <% end %>
-  </div>
-</div>
+<div class="banner booking-show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @studio.photo %>);">
 
-<div class="container">
-  <p>Booking status: <%= @confirmation_status %></p>
-  <!-- strftime() method is for formatting the date -->
-  <p>Start date/time : <%= @booking.start_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
-  <p>End date/time : <%= @booking.end_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
+    <div class="container">
+      <h1> Your <%= @studio.user ==  current_user ? "Hosting" : "Booking" %> for "<%= @studio.name %>" </h1>
+      <p><%= @start_datetime %> - <%= @end_datetime  %></p>
+      <p>Status: <% if @booking.confirmed %>
+        <span class="booking-status booking-confirmed">Confirmed</span>
+        <% else %>
+        <span class="booking-status booking-pending">Pending</span></p>
+        <% end %>
 
-  <p>Booking time: <%= @booking_time %>hrs</p>
-  <p>Booking price: $<%= '%.2f' % @booking_price %></p>
-  <%= link_to "Back to studio search", studios_path %>
+        <div class="booking-details">
+          <div>
+            <div class="my-content-container">
+              <h2>About this studio</h2>
+              <p><%= @studio.description %></p>
+            </div>
 
-</div>
+            <div class="my-content-container">
+              <div class="people-details">
+                <div class="pill">
+                  <p>Owner</p>
+                  <img src="<%= @studio.user.photo %>" class="avatar"/>
+                </div>
+                <div class="pill">
+                  <p>Renter</p>
+                  <img src="<%= @booking.user.photo %>" class="avatar"/>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="booking-checkout my-content-container">
+            <h2>Payment</h2>
+            <p>Booking time</p>
+            <p><strong><%= @booking_time %>hrs</strong></p>
+            <hr>
+            <p>Total price</p>
+            <p><strong>$<%= '%.2f' % @booking_price %></strong></p>
+          </div>
+        </div>
+        <div class="back-link">
+          <%= link_to "Back to studio search", studios_path %>
+        </div>
+    </div>
+
 

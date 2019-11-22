@@ -12,8 +12,11 @@ class BookingsController < ApplicationController
   # GET  /bookings/:id, alias: booking
   def show
     @studio = @booking.studio
-    @confirmation_status = @booking.confirmed ? "confirmed" : "pending"
-    # raise
+
+    # convert
+    @start_datetime = datetime_to_string(@booking.start_datetime)
+    @end_datetime = datetime_to_string(@booking.end_datetime)
+
     # calculate elapsed time in hours
     @booking_time = (@booking.end_datetime - @booking.start_datetime).abs / 60 / 60
 
@@ -64,5 +67,10 @@ class BookingsController < ApplicationController
   # host can confirm, not change dates
   def confirmed_booking_params
     params.require(:booking).permit(:confirmed)
+  end
+
+ # returns datetime in format: " Fri Nov 22, 2019 at 17:56 ""
+  def datetime_to_string(datetime)
+    datetime.strftime("%a %b %d, %Y at %H:%M")
   end
 end
