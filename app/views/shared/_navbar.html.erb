@@ -15,11 +15,8 @@
           <%= link_to "Home", studios_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Bookings", my_studios_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
           <!-- display "host" page link with badge of # of pending bookings -->
-          <%= link_to my_studios_path, class: "nav-link notification" do %>
+          <%= link_to my_studios_path, class: "nav-link notification-c" do %>
             <span>Host</span>
             <% if current_user.studios.size > 0 && @pending_booking_count >0 %>
               <span class="badge" id="badge-pending-bookings">

@@ -1,11 +1,11 @@
 // put this class on the parent element of the badge element
-.notification {
+.notification-c {
   text-decoration: none;
   position: relative;
   display: inline-block;
 }
 
-.notification .badge {
+.notification-c .badge {
   position: absolute;
   top: -8px;
   right: -2px;
