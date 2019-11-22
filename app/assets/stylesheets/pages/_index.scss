@@ -1,7 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "my_studio_index";
 @import "bookings-show";
-
 
 .flexbox-container {
     display: flex;
@@ -15,4 +15,5 @@
 .card-trip {
   border-radius: 5px;
 }
+
 
