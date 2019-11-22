@@ -1,48 +1,56 @@
 <div class="banner booking-show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @studio.photo %>);">
 
     <div class="container">
-      <h1> Your <%= @studio.user ==  current_user ? "Hosting" : "Booking" %> for "<%= @studio.name %>" </h1>
+      <h1> Your <%= @studio.user ==  current_user ? "Hosting" : "Booking" %> for </h1>
+        <h1> "<%= @studio.name %>" </h1>
       <p><%= @start_datetime %> - <%= @end_datetime  %></p>
       <p>Status: <% if @booking.confirmed %>
         <span class="booking-status booking-confirmed">Confirmed</span>
         <% else %>
         <span class="booking-status booking-pending">Pending</span></p>
         <% end %>
+        <% if current_user == @booking.studio.user%>
+          <%= simple_form_for @booking do |f| %>
+              <!-- checks checkbox behind scenes -->
+              <%= f.input :confirmed, as: :hidden, input_html: {value: 1} %>
+              <%= f.submit "Confirm booking", class: "btn btn-flat"%>
+              <% end %>
+        <% end %>
+      </div>
+</div>
 
-        <div class="booking-details">
-          <div>
-            <div class="my-content-container">
-              <h2>About this studio</h2>
-              <p><%= @studio.description %></p>
-            </div>
+<div class="container">
 
-            <div class="my-content-container">
-              <div class="people-details">
-                <div class="pill">
-                  <p>Owner</p>
-                  <img src="<%= @studio.user.photo %>" class="avatar"/>
-                </div>
-                <div class="pill">
-                  <p>Renter</p>
-                  <img src="<%= @booking.user.photo %>" class="avatar"/>
-                </div>
+      <div class="booking-details">
+        <div>
+          <div class="my-content-container">
+            <h2>About this studio</h2>
+            <p><%= @studio.description %></p>
+          </div>
+
+          <div class="my-content-container">
+            <div class="people-details">
+              <div class="pill">
+                <p>Owner</p>
+                <img src="<%= @studio.user.photo %>" class="avatar"/>
+              </div>
+              <div class="pill">
+                <p>Renter</p>
+                <img src="<%= @booking.user.photo %>" class="avatar"/>
               </div>
             </div>
-
           </div>
 
-          <div class="booking-checkout my-content-container">
-            <h2>Payment</h2>
-            <p>Booking time</p>
-            <p><strong><%= @booking_time %>hrs</strong></p>
-            <hr>
-            <p>Total price</p>
-            <p><strong>$<%= '%.2f' % @booking_price %></strong></p>
-          </div>
         </div>
-        <div class="back-link">
-          <%= link_to "Back to studio search", studios_path %>
+
+        <div class="booking-checkout my-content-container">
+          <h2>Payment</h2>
+          <p>Booking time</p>
+          <p><strong><%= @booking_time %>hrs</strong></p>
+          <hr>
+          <p>Total price</p>
+          <p><strong>$<%= '%.2f' % @booking_price %></strong></p>
         </div>
-    </div>
-
-
+      </div>
+        <%= link_to "Back to studio search", studios_path %>
+  </div>
