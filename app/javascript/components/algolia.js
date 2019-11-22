@@ -1,5 +1,5 @@
 const search = () => {
-  const client = algoliasearch('FSKD2HT855', '17e56f601a8c4a972b13cc571c698202');
+  const client = algoliasearch('FSKD2HT855', '0443a7d53dec4f3b5f74a5b74bf39715');
   const index = client.initIndex('Studio');
 
   const query = document.querySelector("#search_query");
