@@ -9,13 +9,15 @@
   </div>
 </div>
 
+<div class="container">
+  <p>Booking status: <%= @confirmation_status %></p>
+  <!-- strftime() method is for formatting the date -->
+  <p>Start date/time : <%= @booking.start_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
+  <p>End date/time : <%= @booking.end_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
 
+  <p>Booking time: <%= @booking_time %>hrs</p>
+  <p>Booking price: $<%= '%.2f' % @booking_price %></p>
+  <%= link_to "Back to studio search", studios_path %>
 
-<p>Booking status: <%= @confirmation_status %></p>
-<!-- strftime() method is for formatting the date -->
-<p>Start date/time : <%= @booking.start_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
-<p>End date/time : <%= @booking.end_datetime.strftime("%a %b %d, %Y at %H:%M") %></p>
+</div>
 
-<p>Booking time: <%= @booking_time %>hrs</p>
-<p>Booking price: $<%= '%.2f' % @booking_price %></p>
-<%= link_to "Back to studio search", studios_path %>
