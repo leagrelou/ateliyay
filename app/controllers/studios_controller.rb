@@ -4,6 +4,7 @@ class StudiosController < ApplicationController
   def index
     # binding.pry
     if params[:search]
+
       # binding.pry
       studio_name = search_params["name"]
       sql_query = "name ILIKE :studio_name"
@@ -21,6 +22,7 @@ class StudiosController < ApplicationController
         image_url: helpers.asset_url(studio.photo.to_s)
       }
     end
+
   end
 
   def show
