@@ -1,0 +1,16 @@
+// put this class on the parent element of the badge element
+.notification {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -8px;
+  right: -2px;
+  padding: 4px 6px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
