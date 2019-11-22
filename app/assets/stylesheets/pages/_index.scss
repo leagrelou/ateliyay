@@ -1,3 +1,18 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "bookings-show";
+
+
+.flexbox-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+// .cards {
+//   grid-template-columns: 1fr 1fr;
+// }
+
+.card-trip {
+  border-radius: 5px;
+}
+
