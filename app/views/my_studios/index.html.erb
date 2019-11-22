@@ -1,39 +1,44 @@
-<h1>My Studios</h1> <%= link_to "Add a studio", new_my_studio_path, class: "btn btn-primary btn-lg" %>
-<div class="bookings">
-  <!-- display bookings pending confirmation by owner -->
-  <div class="pending-bookings">
-    <% if @pending_bookings.length > 0 %>
-      <h2>Pending bookings</h2>
-        <% @pending_bookings.each do |b| %>
-        <div class="booking-item">
-          <div class="booking-name">
-            <%= link_to b.studio.name, booking_path(b) %>
-          </div>
-          <div class="booking-confirm-button">
-            <!-- display button for confirming booking  -->
-            <%= simple_form_for b do |f| %>
-            <!-- checks checkbox behind scenes -->
-            <%= f.input :confirmed, as: :hidden, input_html: {value: 1} %>
-            <%= f.submit "Confirm booking" %>
-            <% end %>
-          </div>
-        </div>
-    <% end %>
-   <% end %>
+<div class="container text-justify">
+  <div class="d-flex justify-content-between mt-3 mb-3">
+  <h1 class="btn btn-ghost">My Studios</h1> 
+  <%= link_to "Add a studio", new_my_studio_path, class: "btn btn-flat" %>
   </div>
+  <div class="bookings">
+    <!-- display bookings pending confirmation by owner -->
+    <div class="pending-bookings">
+      <% if @pending_bookings.length > 0 %>
+        <h2>Pending bookings</h2>
+          <% @pending_bookings.each do |b| %>
+          <div class="booking-item">
+            <div class="booking-name">
+              <%= link_to b.studio.name, booking_path(b) %>
+            </div>
+            <div class="booking-confirm-button">
+              <!-- display button for confirming booking  -->
+              <%= simple_form_for b do |f| %>
+              <!-- checks checkbox behind scenes -->
+              <%= f.input :confirmed, as: :hidden, input_html: {value: 1} %>
+              <%= f.submit "Confirm booking" %>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+     <% end %>
+    </div>
 
-  <!-- display bookings confirmed by owner -->
-  <% if @confirmed_bookings.length > 0 %>
-  <h2>Confirmed bookings</h2>
-    <ul>
-        <% @confirmed_bookings.each do |b| %>
-          <li><%= link_to b.studio.name, booking_path(b) %></li>
-        <% end %>
-      </ul>
-  <% end %>
+    <!-- display bookings confirmed by owner -->
+    <% if @confirmed_bookings.length > 0 %>
+    <h2>Confirmed bookings</h2>
+      <ul>
+          <% @confirmed_bookings.each do |b| %>
+            <li><%= link_to b.studio.name, booking_path(b) %></li>
+          <% end %>
+        </ul>
+    <% end %>
 
+  </div>
 </div>
-
+<!-- display my_studios cards -->
 <div class="container cards mt-5">
   <% @my_studios.each do |my_studio| %>
       <div class="card-trip">
