@@ -1,5 +1,5 @@
 const search = () => {
-  const client = algoliasearch('FSKD2HT855', '17e56f601a8c4a972b13cc571c698202');
+  const client = algoliasearch('UIHC8M3MFW', 'bbde93712f97b7957e35fc29c076f63c');
   const index = client.initIndex('Studio');
 
   const query = document.querySelector("#search_query");
@@ -13,7 +13,7 @@ const search = () => {
         const hiddenCards = document.querySelectorAll(".card-trip-link");
         hiddenCards.forEach((card) => {
           card.style.display = "none";
-        }) 
+        })
 
         // console.log(content);
         content.hits.forEach((hit) => {
