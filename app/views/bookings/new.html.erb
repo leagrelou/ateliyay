@@ -1,9 +1,18 @@
-<div class="container">
-  <h1>Book "<%= @studio.name %>"</h1>
-    <%= simple_form_for [@studio, @booking] do |f| %>
-      <%= f.input :start_datetime, label: "From when?" %>
-      <%= f.input :end_datetime, label: "To when?"%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @studio.photo %>);">
+  <div class="container">
+    <h1>Book "<%= @studio.name %>"</h1>
+    <p>Status: <% if @booking.confirmed %>
+      <span class="booking-status-confirmed">Confirmed</span>
+      <% else %>
+      <span class="booking-status-pending">Pending</span></p>
+      <% end %>
+  </div>
+</div>
 
-      <%= f.submit "Book!", class: "btn btn-success"%>
+<div class="container form-control-lg">
+    <%= simple_form_for [@studio, @booking] do |f| %>
+      <%= f.input :start_datetime, label: "From when?"%>
+      <%= f.input :end_datetime, label: "To when?"%>
+      <%= f.submit "Book!", class: "btn btn-success btn-lg"%>
     <% end %>
 </div>
