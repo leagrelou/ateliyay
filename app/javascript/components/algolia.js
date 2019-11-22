@@ -1,5 +1,8 @@
 const search = () => {
-  const client = algoliasearch('TD0R9B32Z4', 'b92ceffe35e87909406fdff498d06641');
+  const appId = document.querySelector("meta[name='algolia-app-id']").content;
+  const searchApiKey = document.querySelector("meta[name='algolia-search-key']").content;
+
+  const client = algoliasearch(appId, searchApiKey);
   const index = client.initIndex('Studio');
 
   const query = document.querySelector("#search_query");
