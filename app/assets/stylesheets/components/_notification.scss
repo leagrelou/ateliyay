@@ -1,0 +1,24 @@
+.notification {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  position: relative;
+}
+
+.notification .notification-content {
+  flex-grow: 1;
+  padding: 0 24px;
+  align-item: center;
+}
+
+.notification .notification-actions {
+  display: flex;
+  align-item: center;
+  transition: ease .3s;
+  position: absolute;
+    top: -2px;
+    right: 22px;
+}
