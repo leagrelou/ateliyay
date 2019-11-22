@@ -13,3 +13,10 @@
   top: 0;
   padding-top: 50px;
 }
+
+// Smallest device
+@media (max-width: 575px) {
+  #map {
+    display: none;
+  }
+}
