@@ -1,6 +1,6 @@
 <div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to studios_path, class: "navbar-brand" do %>
-    <%= image_tag "Ateliyay-logo_circle.png" %>
+    <%= image_tag "yay.svg" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,13 +11,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Home", studios_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Bookings", my_studios_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <!-- display "host" page link with badge of # of pending bookings -->
           <%= link_to my_studios_path, class: "nav-link notification" do %>
-            <span>My Bookings</span>
+            <span>Host</span>
             <% if current_user.studios.size > 0 && @pending_booking_count >0 %>
               <span class="badge" id="badge-pending-bookings">
                 <!-- method in application controller-->
