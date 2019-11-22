@@ -1,0 +1,41 @@
+.booking-details {
+  display: flex;
+
+}
+
+// .my-content-container h2 {
+//   color: rgba(255, 255, 255, 0.9);
+//   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+//   font-size: 26px;
+//   font-weight: bold;
+// }
+
+.back-link {
+  background-color: rgba(164, 30, 233, 0.6);
+  border-radius: 20px;
+  width: 200px;
+  padding: 6px 8px;
+  text-align: center;
+  a {
+    color: white;
+  }
+}
+
+.people-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.booking-checkout {
+
+  max-height: 220px;
+
+  p strong {
+    font-size: 24px;
+  }
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+}

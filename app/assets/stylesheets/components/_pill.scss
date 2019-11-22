@@ -1,0 +1,14 @@
+.pill {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 150px;
+  margin: 6px 8px;
+  background-color: rgba(225, 225, 225, 0.9);
+  // background-color: rgba(22, 22, 21, 0.7);
+  padding: 6px 8px;
+  border-radius: 30px;
+  p {
+    margin-bottom: 0;
+  }
+}

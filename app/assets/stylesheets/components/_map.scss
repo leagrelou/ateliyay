@@ -6,3 +6,17 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding-top: 50px;
+}
+
+// Smallest device
+@media (max-width: 575px) {
+  #map {
+    display: none;
+  }
+}

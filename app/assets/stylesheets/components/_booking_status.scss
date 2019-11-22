@@ -1,0 +1,12 @@
+.booking-status {
+  background-color: rgba(138, 140, 139, 0.9);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.booking-status.booking-confirmed {
+  background-color: rgba(111, 191, 115, 0.5);
+  span {
+    color: white;
+  }
+}
